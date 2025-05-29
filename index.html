@@ -1,435 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio | Jens De Clercq | GenAI Developer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
 
-        header {
-            text-align: center;
-            padding: 60px 0;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+      header {
+        text-align: center;
+        padding: 60px 0;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            margin: 20px;
-        }
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        margin: 20px;
+      }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px;
-            font-size: 60px;
-            color: white;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            animation: float 6s ease-in-out infinite;
-        }
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+        font-size: 60px;
+        color: white;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        animation: float 6s ease-in-out infinite;
+      }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 30px;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        animation: slideIn 0.8s ease-out;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .card h2 {
+        color: #667eea;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .icon {
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .skill-item {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: 15px;
+        border-radius: 15px;
+        text-align: center;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .skill-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+      }
+
+      .interests-list {
+        list-style: none;
+      }
+
+      .interests-list li {
+        background: rgba(102, 126, 234, 0.1);
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 12px;
+        border-left: 4px solid #667eea;
+        transition: all 0.3s ease;
+      }
+
+      .interests-list li:hover {
+        background: rgba(102, 126, 234, 0.2);
+        transform: translateX(10px);
+      }
+
+      .cta-section {
+        text-align: center;
+        margin-top: 50px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #667eea;
+        border: 2px solid #667eea;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .floating-elements {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .floating-element {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float-random 15s infinite linear;
+      }
+
+      @keyframes float-random {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-content {
+          grid-template-columns: 1fr;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            animation: slideIn 0.8s ease-out;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .card h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .icon {
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .skill-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .skill-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .interests-list {
-            list-style: none;
-        }
-
-        .interests-list li {
-            background: rgba(102, 126, 234, 0.1);
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-            transition: all 0.3s ease;
-        }
-
-        .interests-list li:hover {
-            background: rgba(102, 126, 234, 0.2);
-            transform: translateX(10px);
-        }
-
-        .cta-section {
-            text-align: center;
-            margin-top: 50px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+          font-size: 2rem;
         }
 
         .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
+          flex-direction: column;
+          align-items: center;
         }
 
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float-random 15s infinite linear;
-        }
-
-        @keyframes float-random {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="floating-elements" id="floatingElements"></div>
-    
+
     <div class="container">
-        <header>
-            <div class="hero-bg"></div>
-            <div class="hero-content">
-                <div class="profile-img">
-                    <img src="https://media.licdn.com/dms/image/v2/D5603AQFSKzkP_XUy9Q/profile-displayphoto-shrink_800_800/B56ZSyq93xHQAc-/0/1738164396143?e=1753920000&v=beta&t=HvARiBVEhccwFS_OqnznFs4TWiCRCLBatiLWVNzq7uI" alt="Jens De Clercq" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                </div>
-                <h1>Jens De Clercq</h1>
-                <p class="subtitle">IT Student | Developer | GenAI Enthusiast</p>
-                <p>24 years old | Building the future with code</p>
-            </div>
-        </header>
+      <header>
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <div class="profile-img">
+            <img
+              src="https://media.licdn.com/dms/image/v2/D5603AQFSKzkP_XUy9Q/profile-displayphoto-shrink_800_800/B56ZSyq93xHQAc-/0/1738164396143?e=1753920000&v=beta&t=HvARiBVEhccwFS_OqnznFs4TWiCRCLBatiLWVNzq7uI"
+              alt="Jens De Clercq"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+              "
+            />
+          </div>
+          <h1>Jens De Clercq</h1>
+          <p class="subtitle">Who am I?</p>
+          <p>24 years old | Building the future with code</p>
+        </div>
+      </header>
 
-        <div class="main-content">
-            <div class="card">
-                <h2>
-                    <span class="icon">🚀</span>
-                    Technical Skills
-                </h2>
-                <p>Technologies and tools I work with:</p>
-                <div class="skills-grid">
-                    <div class="skill-item">React</div>
-                    <div class="skill-item">Python</div>
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">HTML/CSS</div>
-                    <div class="skill-item">Node.js</div>
-                    <div class="skill-item">Git</div>
-                    <div class="skill-item">SQL</div>
-                    <div class="skill-item">API Design</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>
-                    <span class="icon">🤖</span>
-                    Interests & Focus
-                </h2>
-                <ul class="interests-list">
-                    <li>
-                        <strong>Generative AI Applications</strong><br>
-                        Exploring machine learning and AI integration in web applications
-                    </li>
-                    <li>
-                        <strong>Full-Stack Development</strong><br>
-                        Building end-to-end solutions with modern frameworks
-                    </li>
-                    <li>
-                        <strong>Open Source</strong><br>
-                        Contributing to community projects and learning from others
-                    </li>
-                    <li>
-                        <strong>Innovation</strong><br>
-                        Staying current with emerging technologies and trends
-                    </li>
-                </ul>
-            </div>
+      <div class="main-content">
+        <div class="card">
+          <h2>
+            <span class="icon">🚀</span>
+            Technical Skills
+          </h2>
+          <p>Technologies and tools I work with:</p>
+          <div class="skills-grid">
+            <div class="skill-item">React</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">HTML/CSS</div>
+            <div class="skill-item">Node.js</div>
+            <div class="skill-item">Git</div>
+            <div class="skill-item">SQL</div>
+            <div class="skill-item">API Design</div>
+          </div>
         </div>
 
-        <div class="cta-section">
-            <h2>Let's Build Something Amazing Together</h2>
-            <p>I'm always excited to work on new projects and collaborate with fellow developers. Whether it's a creative web application, an AI-powered tool, or anything in between!</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary" onclick="showContact()">Get In Touch</a>
-                <a href="https://github.com/JensDeClercq1" class="btn btn-secondary" target="_blank">View GitHub</a>
-            </div>
+        <div class="card">
+          <h2>
+            <span class="icon">🤖</span>
+            Interests & Focus
+          </h2>
+          <ul class="interests-list">
+            <li>
+              <strong>Generative AI Applications</strong><br />
+              Exploring machine learning and AI integration in web applications
+            </li>
+            <li>
+              <strong>Full-Stack Development</strong><br />
+              Building end-to-end solutions with modern frameworks
+            </li>
+            <li>
+              <strong>Open Source</strong><br />
+              Contributing to community projects and learning from others
+            </li>
+            <li>
+              <strong>Innovation</strong><br />
+              Staying current with emerging technologies and trends
+            </li>
+          </ul>
         </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>Let's Build Something Amazing Together</h2>
+        <p>
+          I'm always excited to work on new projects and collaborate with fellow
+          developers. Whether it's a creative web application, an AI-powered
+          tool, or anything in between!
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-primary" onclick="showContact()"
+            >Get In Touch</a
+          >
+          <a
+            href="https://github.com/JensDeClercq1"
+            class="btn btn-secondary"
+            target="_blank"
+            >View GitHub</a
+          >
+        </div>
+      </div>
     </div>
 
     <script>
-        // Create floating background elements
-        function createFloatingElements() {
-            const container = document.getElementById('floatingElements');
-            const elements = 15;
-            
-            for (let i = 0; i < elements; i++) {
-                const element = document.createElement('div');
-                element.className = 'floating-element';
-                
-                const size = Math.random() * 60 + 20;
-                element.style.width = size + 'px';
-                element.style.height = size + 'px';
-                element.style.left = Math.random() * 100 + '%';
-                element.style.animationDelay = Math.random() * 15 + 's';
-                element.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                
-                container.appendChild(element);
+      // Create floating background elements
+      function createFloatingElements() {
+        const container = document.getElementById("floatingElements");
+        const elements = 15;
+
+        for (let i = 0; i < elements; i++) {
+          const element = document.createElement("div");
+          element.className = "floating-element";
+
+          const size = Math.random() * 60 + 20;
+          element.style.width = size + "px";
+          element.style.height = size + "px";
+          element.style.left = Math.random() * 100 + "%";
+          element.style.animationDelay = Math.random() * 15 + "s";
+          element.style.animationDuration = Math.random() * 10 + 10 + "s";
+
+          container.appendChild(element);
+        }
+      }
+
+      // Add interactive skill hover effects
+      function initSkillInteractions() {
+        const skillItems = document.querySelectorAll(".skill-item");
+
+        skillItems.forEach((item) => {
+          item.addEventListener("mouseenter", function () {
+            this.style.transform = "scale(1.1) rotate(5deg)";
+          });
+
+          item.addEventListener("mouseleave", function () {
+            this.style.transform = "scale(1) rotate(0deg)";
+          });
+
+          item.addEventListener("click", function () {
+            this.style.animation = "none";
+            setTimeout(() => {
+              this.style.animation = "";
+            }, 100);
+
+            // Add a pulse effect
+            this.style.transform = "scale(1.2)";
+            setTimeout(() => {
+              this.style.transform = "scale(1.05)";
+            }, 150);
+          });
+        });
+      }
+
+      // Smooth scroll animation observer
+      function initScrollAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
             }
-        }
+          });
+        });
 
-        // Add interactive skill hover effects
-        function initSkillInteractions() {
-            const skillItems = document.querySelectorAll('.skill-item');
-            
-            skillItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.1) rotate(5deg)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0deg)';
-                });
-                
-                item.addEventListener('click', function() {
-                    this.style.animation = 'none';
-                    setTimeout(() => {
-                        this.style.animation = '';
-                    }, 100);
-                    
-                    // Add a pulse effect
-                    this.style.transform = 'scale(1.2)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1.05)';
-                    }, 150);
-                });
-            });
-        }
+        document.querySelectorAll(".card").forEach((card) => {
+          observer.observe(card);
+        });
+      }
 
-        // Smooth scroll animation observer
-        function initScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-
-            document.querySelectorAll('.card').forEach(card => {
-                observer.observe(card);
-            });
-        }
-
-        // Contact modal
-        function showContact() {
-            const modal = document.createElement('div');
-            modal.style.cssText = `
+      // Contact modal
+      function showContact() {
+        const modal = document.createElement("div");
+        modal.style.cssText = `
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -442,8 +467,8 @@
                 z-index: 1000;
                 animation: fadeIn 0.3s ease;
             `;
-            
-            modal.innerHTML = `
+
+        modal.innerHTML = `
                 <div style="
                     background: white;
                     padding: 40px;
@@ -472,67 +497,78 @@
                     ">Close</button>
                 </div>
             `;
-            
-            document.body.appendChild(modal);
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.remove();
-                }
-            });
+
+        document.body.appendChild(modal);
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.remove();
+          }
+        });
+      }
+
+      // Dynamic text effect for the subtitle
+      function initTypewriterEffect() {
+        const subtitle = document.querySelector(".subtitle");
+        const texts = [
+          "IT Student | Developer | GenAI Enthusiast",
+          "Building Tomorrow's Tech Today",
+          "React • Python • Innovation",
+          "Code. Create. Collaborate.",
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+          const currentText = texts[textIndex];
+
+          if (isDeleting) {
+            displayText = currentText.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            displayText = currentText.substring(0, charIndex + 1);
+            charIndex++;
+          }
+
+          // Add invisible placeholder to maintain height
+          const maxLength = Math.max(...texts.map((text) => text.length));
+          const invisibleChars = "&nbsp;".repeat(
+            maxLength - displayText.length
+          );
+          subtitle.innerHTML =
+            displayText +
+            '<span style="opacity: 0;">' +
+            invisibleChars +
+            "</span>";
+
+          if (!isDeleting && charIndex === currentText.length) {
+            setTimeout(() => (isDeleting = true), 2000);
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+          }
+
+          setTimeout(typeWriter, isDeleting ? 50 : 100);
         }
 
-        // Dynamic text effect for the subtitle
-        function initTypewriterEffect() {
-            const subtitle = document.querySelector('.subtitle');
-            const texts = [
-                'IT Student | Developer | GenAI Enthusiast',
-                'Building Tomorrow\'s Tech Today',
-                'React • Python • Innovation',
-                'Code. Create. Collaborate.'
-            ];
-            
-            let textIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            
-            function typeWriter() {
-                const currentText = texts[textIndex];
-                
-                if (isDeleting) {
-                    subtitle.textContent = currentText.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    subtitle.textContent = currentText.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-                
-                if (!isDeleting && charIndex === currentText.length) {
-                    setTimeout(() => isDeleting = true, 2000);
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    textIndex = (textIndex + 1) % texts.length;
-                }
-                
-                setTimeout(typeWriter, isDeleting ? 50 : 100);
-            }
-            
-            // Start the effect after initial load
-            setTimeout(typeWriter, 3000);
-        }
+        // Start the effect after initial load
+        setTimeout(typeWriter, 3000);
+      }
 
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            createFloatingElements();
-            initSkillInteractions();
-            initScrollAnimations();
-            initTypewriterEffect();
-            
-            // Add some interactive particles on click
-            document.addEventListener('click', function(e) {
-                for (let i = 0; i < 5; i++) {
-                    const particle = document.createElement('div');
-                    particle.style.cssText = `
+      // Initialize everything when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        createFloatingElements();
+        initSkillInteractions();
+        initScrollAnimations();
+        initTypewriterEffect();
+
+        // Add some interactive particles on click
+        document.addEventListener("click", function (e) {
+          for (let i = 0; i < 5; i++) {
+            const particle = document.createElement("div");
+            particle.style.cssText = `
                         position: fixed;
                         width: 6px;
                         height: 6px;
@@ -544,27 +580,29 @@
                         top: ${e.clientY}px;
                         animation: particle${i} 1s ease-out forwards;
                     `;
-                    
-                    const style = document.createElement('style');
-                    style.textContent = `
+
+            const style = document.createElement("style");
+            style.textContent = `
                         @keyframes particle${i} {
                             to {
-                                transform: translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px);
+                                transform: translate(${
+                                  (Math.random() - 0.5) * 100
+                                }px, ${(Math.random() - 0.5) * 100}px);
                                 opacity: 0;
                             }
                         }
                     `;
-                    
-                    document.head.appendChild(style);
-                    document.body.appendChild(particle);
-                    
-                    setTimeout(() => {
-                        particle.remove();
-                        style.remove();
-                    }, 1000);
-                }
-            });
+
+            document.head.appendChild(style);
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+              particle.remove();
+              style.remove();
+            }, 1000);
+          }
         });
+      });
     </script>
-</body>
+  </body>
 </html>
