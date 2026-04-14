@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# JetBrains IDEs
+.idea/
+
+# Playwright MCP
+.playwright-mcp/
+
+# Node (if ever used)
+node_modules/
+npm-debug.log*
+
+# Preview images (generated assets)
+preview-*.png
+preview-*.jpg
